@@ -28,5 +28,10 @@ namespace SemiProject
             //Zrobić magię dodającą napój do bazy
             //czarna magia bardzo
         }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
