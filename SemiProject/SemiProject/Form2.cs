@@ -20,11 +20,13 @@ namespace SemiProject
         private void adding_Click(object sender, EventArgs e)
         {
             //Zrobić magię dodającą składniki
+            //czarna magia bardzo 
         }
 
         private void OK_Click(object sender, EventArgs e)
         {
             //Zrobić magię dodającą napój do bazy
+            //czarna magia bardzo
         }
     }
 }

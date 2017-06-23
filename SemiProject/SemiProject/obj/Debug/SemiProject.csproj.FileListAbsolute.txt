@@ -33,3 +33,20 @@ C:\Users\Anna Piasecka\Desktop\Projekt Semi\Nowy folder\SemiProject\SemiProject\
 C:\Users\Anna Piasecka\Desktop\vvv\SemistrukturalneBD\SemiProject\SemiProject\bin\Debug\SemiProject.exe.config
 C:\Users\Anna Piasecka\Desktop\vvv\SemistrukturalneBD\SemiProject\SemiProject\obj\Debug\SemiProject.exe
 C:\Users\Anna Piasecka\Desktop\vvv\SemistrukturalneBD\SemiProject\SemiProject\obj\Debug\SemiProject.pdb
+C:\Users\akani\Source\Repos\SemistrukturalneBD\SemiProject\SemiProject\bin\Debug\SemiProject.exe.config
+C:\Users\akani\Source\Repos\SemistrukturalneBD\SemiProject\SemiProject\obj\Debug\SemiProject.exe
+C:\Users\akani\Source\Repos\SemistrukturalneBD\SemiProject\SemiProject\obj\Debug\SemiProject.pdb
+C:\Users\akani\Source\Repos\SemistrukturalneBD\SemiProject\SemiProject\bin\Debug\Microsoft.Azure.Documents.ServiceInterop.dll
+C:\Users\akani\Source\Repos\SemistrukturalneBD\SemiProject\SemiProject\bin\Debug\DocumentDB.Spatial.Sql.dll
+C:\Users\akani\Source\Repos\SemistrukturalneBD\SemiProject\SemiProject\bin\Debug\SemiProject.exe
+C:\Users\akani\Source\Repos\SemistrukturalneBD\SemiProject\SemiProject\bin\Debug\SemiProject.pdb
+C:\Users\akani\Source\Repos\SemistrukturalneBD\SemiProject\SemiProject\bin\Debug\Microsoft.Azure.Documents.Client.dll
+C:\Users\akani\Source\Repos\SemistrukturalneBD\SemiProject\SemiProject\bin\Debug\Newtonsoft.Json.dll
+C:\Users\akani\Source\Repos\SemistrukturalneBD\SemiProject\SemiProject\bin\Debug\Microsoft.Azure.Documents.Client.xml
+C:\Users\akani\Source\Repos\SemistrukturalneBD\SemiProject\SemiProject\bin\Debug\Newtonsoft.Json.xml
+C:\Users\akani\Source\Repos\SemistrukturalneBD\SemiProject\SemiProject\obj\Debug\SemiProject.csprojResolveAssemblyReference.cache
+C:\Users\akani\Source\Repos\SemistrukturalneBD\SemiProject\SemiProject\obj\Debug\SemiProject.Form1.resources
+C:\Users\akani\Source\Repos\SemistrukturalneBD\SemiProject\SemiProject\obj\Debug\SemiProject.Form2.resources
+C:\Users\akani\Source\Repos\SemistrukturalneBD\SemiProject\SemiProject\obj\Debug\SemiProject.Form3.resources
+C:\Users\akani\Source\Repos\SemistrukturalneBD\SemiProject\SemiProject\obj\Debug\SemiProject.Properties.Resources.resources
+C:\Users\akani\Source\Repos\SemistrukturalneBD\SemiProject\SemiProject\obj\Debug\SemiProject.csproj.GenerateResource.Cache
