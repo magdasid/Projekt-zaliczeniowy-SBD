@@ -767,10 +767,10 @@
             // 
             // panel7
             // 
-            this.panel7.BackColor = System.Drawing.Color.Silver;
-            this.panel7.Location = new System.Drawing.Point(209, 204);
+            this.panel7.BackColor = System.Drawing.Color.LightGray;
+            this.panel7.Location = new System.Drawing.Point(210, 204);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(590, 348);
+            this.panel7.Size = new System.Drawing.Size(589, 348);
             this.panel7.TabIndex = 91;
             // 
             // Form1
