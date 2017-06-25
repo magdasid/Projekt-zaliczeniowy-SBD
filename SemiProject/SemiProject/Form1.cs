@@ -105,7 +105,6 @@ namespace SemiProject
         public Form1()
         {
             InitializeComponent();
-            ekran.Text = "";
             List<string> items = new List<string>() { "Nazwa produktu", "Typ", "Procenty", "Producent" };
             comboBox1.DataSource = items;
             try
@@ -128,7 +127,7 @@ namespace SemiProject
             Database database = client.CreateDatabaseQuery().Where(db => db.Id == "WinoDB").AsEnumerable().FirstOrDefault();
             DocumentCollection documentCollection = client.CreateDocumentCollectionQuery(database.CollectionsLink).Where(c => c.Id == "WinoDB").AsEnumerable().FirstOrDefault();
 
-            ekran.Text = "";
+           /* ekran.Text = ""; 
 
             var drinks = client.CreateDocumentQuery(documentCollection.DocumentsLink,
             "SELECT * " +
@@ -136,12 +135,12 @@ namespace SemiProject
 
             foreach (var drink in drinks) //Tutaj dorobić lepsze wyświetlanie napojów - nie surowy JSON + mają się nie wyświetlać elementy, których nie przydzielono
             {
-                if(ekran.Text != "")
+               if(ekran.Text != "")
                     ekran.Text += "\n\n" + drink;
                 else
                     ekran.Text += "" + drink;
-            }
-        }
+            } */
+        } 
 
         private void button3_Click(object sender, EventArgs e) //Usuń napój
         {
@@ -167,7 +166,7 @@ namespace SemiProject
             Database database = client.CreateDatabaseQuery().Where(db => db.Id == "WinoDB").AsEnumerable().FirstOrDefault();
             DocumentCollection documentCollection = client.CreateDocumentCollectionQuery(database.CollectionsLink).Where(c => c.Id == "WinoDB").AsEnumerable().FirstOrDefault();
 
-            ekran.Text = "";
+            /*ekran.Text = ""; */
             string kat = "";
             string właść = "";
 
@@ -180,14 +179,14 @@ namespace SemiProject
             "SELECT * " +
             "FROM Drinks f " +
             "WHERE ");
-
+            /*
             foreach (var drink in drinks) //Jak przy wyświetlaniu... - poprawić!
             {
                 if (ekran.Text != "")
                     ekran.Text += "\n\n" + drink;
                 else
                     ekran.Text += "" + drink;
-            }
+            }*/
         }
 
         private void Form1_Load(object sender, EventArgs e)
