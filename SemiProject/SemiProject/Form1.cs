@@ -128,6 +128,7 @@ namespace SemiProject
             label1.Visible = true;
             panel7.Visible = false;
             panel2.Visible = false;
+            panel1.Visible = false;
             this.client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
             Database database = client.CreateDatabaseQuery().Where(db => db.Id == "WinoDB").AsEnumerable().FirstOrDefault();
             DocumentCollection documentCollection = client.CreateDocumentCollectionQuery(database.CollectionsLink).Where(c => c.Id == "WinoDB").AsEnumerable().FirstOrDefault();
@@ -157,8 +158,9 @@ namespace SemiProject
         {
             ekran.Visible = false;
             label1.Visible = false;
-            panel7.Visible = false;
             panel2.Visible = true;
+            panel7.Visible = false;
+            panel1.Visible = true;
 
         }
 
@@ -198,9 +200,6 @@ namespace SemiProject
             }*/
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
