@@ -104,6 +104,7 @@ namespace SemiProject
 
         public Form1()
         {
+            
             InitializeComponent();
             List<string> items = new List<string>() { "Nazwa produktu", "Typ", "Procenty", "Producent" };
             comboBox1.DataSource = items;
@@ -123,11 +124,15 @@ namespace SemiProject
 
         private void button1_Click(object sender, EventArgs e) //Wyświetl napoje
         {
+            ekran.Visible = true;
+            label1.Visible = true;
+            panel7.Visible = false;
+            panel2.Visible = false;
             this.client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
             Database database = client.CreateDatabaseQuery().Where(db => db.Id == "WinoDB").AsEnumerable().FirstOrDefault();
             DocumentCollection documentCollection = client.CreateDocumentCollectionQuery(database.CollectionsLink).Where(c => c.Id == "WinoDB").AsEnumerable().FirstOrDefault();
-
-           /* ekran.Text = ""; 
+            
+             ekran.Text = ""; 
 
             var drinks = client.CreateDocumentQuery(documentCollection.DocumentsLink,
             "SELECT * " +
@@ -139,7 +144,7 @@ namespace SemiProject
                     ekran.Text += "\n\n" + drink;
                 else
                     ekran.Text += "" + drink;
-            } */
+            } 
         } 
 
         private void button3_Click(object sender, EventArgs e) //Usuń napój
@@ -150,7 +155,11 @@ namespace SemiProject
 
         private void button2_Click(object sender, EventArgs e) //Dodaj napój
         {
-            //Otworzyć Form2, funkcje porobić w Form2
+            ekran.Visible = false;
+            label1.Visible = false;
+            panel7.Visible = false;
+            panel2.Visible = true;
+
         }
 
         private void button4_Click(object sender, EventArgs e) //Edytuj napój

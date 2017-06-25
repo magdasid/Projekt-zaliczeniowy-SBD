@@ -63,7 +63,6 @@ C:\Users\Madzia\Desktop\Nowy folder\SemistrukturalneBD\SemiProject\SemiProject\b
 C:\Users\Madzia\Desktop\Nowy folder\SemistrukturalneBD\SemiProject\SemiProject\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Madzia\Desktop\Nowy folder\SemistrukturalneBD\SemiProject\SemiProject\obj\Debug\SemiProject.csprojResolveAssemblyReference.cache
 C:\Users\Madzia\Desktop\Nowy folder\SemistrukturalneBD\SemiProject\SemiProject\obj\Debug\SemiProject.Form1.resources
-C:\Users\Madzia\Desktop\Nowy folder\SemistrukturalneBD\SemiProject\SemiProject\obj\Debug\SemiProject.Form2.resources
 C:\Users\Madzia\Desktop\Nowy folder\SemistrukturalneBD\SemiProject\SemiProject\obj\Debug\SemiProject.Form3.resources
 C:\Users\Madzia\Desktop\Nowy folder\SemistrukturalneBD\SemiProject\SemiProject\obj\Debug\SemiProject.Properties.Resources.resources
 C:\Users\Madzia\Desktop\Nowy folder\SemistrukturalneBD\SemiProject\SemiProject\obj\Debug\SemiProject.csproj.GenerateResource.Cache
