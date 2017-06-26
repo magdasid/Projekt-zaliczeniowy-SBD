@@ -13,6 +13,7 @@ using Microsoft.Azure.Documents;
 using Microsoft.Azure.Documents.Client;
 using Microsoft.Azure.Documents.Linq;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 //Chwilowo działa, ale jak trzeba wstawić coś do bazy to po wstawieniu się zatrzymuje i za nic nie chce iść dalej ;/
 //Trzeba zrobić ładniejsze wyświetlanie JSONów!!
@@ -25,7 +26,6 @@ namespace SemiProject
         private const string EndpointUrl = "https://ap-db.documents.azure.com:443/";
         private const string PrimaryKey = "G7xxxU1Ny5lZCkz8tDUiMXDXGFpg2C9lxjI6VOx6rHzQWRHPkbtUZNM1B9ebdBHhDCOQ2OBh05FXdqyRPL6VUA==";
         private bool changed = false;
-        private int lastId = 1;
         private int ingAmount = 1;
 
         private async Task GetStartedDemo()
@@ -111,7 +111,7 @@ namespace SemiProject
             InitializeComponent();
             label1.Visible = false;
             ekran.Visible = false;
-            List<string> items = new List<string>() { "Nazwa produktu", "Typ", "Procenty", "Producent" };
+            List<string> items = new List<string>() { "Nazwa produktu", "Typ", "Producent" };
             comboBox1.DataSource = items;
             try
             {
@@ -185,33 +185,150 @@ namespace SemiProject
 
         private void button5_Click(object sender, EventArgs e) //Znajdź napój
         {
-            //nazwa produktu/typ/procenty/producent
 
             this.client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
             Database database = client.CreateDatabaseQuery().Where(db => db.Id == "WinoDB").AsEnumerable().FirstOrDefault();
             DocumentCollection documentCollection = client.CreateDocumentCollectionQuery(database.CollectionsLink).Where(c => c.Id == "WinoDB").AsEnumerable().FirstOrDefault();
 
             ekran.Text = "";
-            string kat = "";
-            string właść = "";
-
-            kat = comboBox1.Text;
-            właść = textBox1.Text;
-
-            //dorobić warunki i szajs
+            string kat = comboBox1.Text;
+            string właść = textBox1.Text;
 
             var drinks = client.CreateDocumentQuery(documentCollection.DocumentsLink,
-            "SELECT * " +
-            "FROM Drinks f " +
-            "WHERE ");
+                "SELECT * " +
+                "FROM Drinks f ");
 
-            foreach (var drink in drinks) //Jak przy wyświetlaniu... - poprawić!
+            if (kat == "Nazwa produktu" && właść != "")
+            {
+                drinks = client.CreateDocumentQuery(documentCollection.DocumentsLink,
+                "SELECT * " +
+                "FROM Drinks f " +
+                "WHERE f.Name = '" + właść + "'");
+            }
+            else if(kat == "Typ" && właść != "")
+            {
+                drinks = client.CreateDocumentQuery(documentCollection.DocumentsLink,
+                "SELECT * " +
+                "FROM Drinks f " +
+                "WHERE f.Type = '" + właść + "'");
+            }
+            else if(kat == "Producent" && właść != "")
+            {
+                drinks = client.CreateDocumentQuery(documentCollection.DocumentsLink,
+                "SELECT * " +
+                "FROM Drinks f " +
+                "WHERE f.Companies.Name = '" + właść + "'");
+            }
+
+            foreach (var drink in drinks)
             {
                 if (ekran.Text != "")
                     ekran.Text += "\n\n" + drink;
                 else
                     ekran.Text += "" + drink;
             }
+        }
+
+        public async void EditDrink()
+        {
+
+            this.client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
+            Database database = client.CreateDatabaseQuery().Where(db => db.Id == "WinoDB").AsEnumerable().FirstOrDefault();
+            DocumentCollection documentCollection = client.CreateDocumentCollectionQuery(database.CollectionsLink).Where(c => c.Id == "WinoDB").AsEnumerable().FirstOrDefault();
+            string id = textBox11.Text;
+
+            Ingredient[] Ing = new Ingredient[ingAmount];
+            int per1, per2, per3, per4;
+
+            if (textBox28.Text != "")
+                per1 = Convert.ToInt32(textBox28.Text);
+            else
+                per1 = 0;
+
+            Ing[0] = new Ingredient
+            {
+                Name = textBox29.Text,
+                Description = richTextBox8.Text,
+                Percent = per1
+            };
+            if (Ing.Length > 1)
+            {
+                if (textBox26.Text != "")
+                    per2 = Convert.ToInt32(textBox26.Text);
+                else
+                    per2 = 0;
+
+                Ing[1] = new Ingredient
+                {
+                    Name = textBox27.Text,
+                    Description = richTextBox7.Text,
+                    Percent = per2
+                };
+                if (Ing.Length > 2)
+                {
+                    if (textBox24.Text != "")
+                        per3 = Convert.ToInt32(textBox24.Text);
+                    else
+                        per3 = 0;
+
+                    Ing[2] = new Ingredient
+                    {
+                        Name = textBox25.Text,
+                        Description = richTextBox6.Text,
+                        Percent = per3
+                    };
+                    if (Ing.Length == 4)
+                    {
+                        if (textBox22.Text != "")
+                            per4 = Convert.ToInt32(textBox22.Text);
+                        else
+                            per4 = 0;
+
+                        Ing[3] = new Ingredient
+                        {
+                            Name = textBox23.Text,
+                            Description = richTextBox5.Text,
+                            Percent = per4
+                        };
+                    }
+                }
+            }
+
+            int nr;
+            if (textBox18.Text != "")
+                nr = Convert.ToInt32(textBox18.Text);
+            else
+                nr = 0;
+
+            Address Addr = new Address
+            {
+                Country = textBox15.Text,
+                City = textBox16.Text,
+                Street = textBox17.Text,
+                Number = nr,
+                PostalCode = textBox19.Text
+            };
+
+            Company Comp = new Company
+            {
+                Name = textBox14.Text,
+                Description = richTextBox4.Text,
+                Addresses = Addr
+            };
+
+
+            Drinkz d1 = new Drinkz
+            {
+                Id = id,
+                Name = textBox12.Text,
+                Type = textBox13.Text,
+                Companies = Comp,
+                Ingredients = Ing,
+                Price = Convert.ToDouble(textBox20.Text),
+                Quality = textBox21.Text
+            };
+
+            await client.CreateDocumentAsync(documentCollection.DocumentsLink, d1);
         }
 
         public async void AddDrink()
@@ -431,6 +548,25 @@ namespace SemiProject
                     ingAmount = 1;
                     panel1.Visible = false;
                 }
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            if (panel13.Visible == false && panel2.Visible == false && panel1.Visible == false)
+            {
+                panel13.Visible = true;
+                ingAmount++;
+            }
+            else if (panel13.Visible == true && panel2.Visible == false && panel1.Visible == false)
+            {
+                panel2.Visible = true;
+                ingAmount++;
+            }
+            else if (panel13.Visible == true && panel2.Visible == true && panel1.Visible == false)
+            {
+                panel1.Visible = true;
+                ingAmount++;
             }
         }
     }
