@@ -51,7 +51,7 @@ namespace SemiProject
                         new RequestOptions { OfferType = "S1" });
                 }
 
-                Document document = client.CreateDocumentQuery(documentCollection.DocumentsLink).Where(d => d.Id == "Piwo1").AsEnumerable().FirstOrDefault();
+                Document document = client.CreateDocumentQuery(documentCollection.DocumentsLink).Where(d => d.Id == "1").AsEnumerable().FirstOrDefault();
 
                 if (document == null)
                 {
@@ -161,7 +161,8 @@ namespace SemiProject
             textBox10.Visible = true;
             button7.Visible = true;
             panel7.Visible = true;
-
+            label1.Visible = false;
+            ekran.Visible = false;
         }
 
         private void button2_Click(object sender, EventArgs e) //Dodaj napój
@@ -190,7 +191,7 @@ namespace SemiProject
             Database database = client.CreateDatabaseQuery().Where(db => db.Id == "WinoDB").AsEnumerable().FirstOrDefault();
             DocumentCollection documentCollection = client.CreateDocumentCollectionQuery(database.CollectionsLink).Where(c => c.Id == "WinoDB").AsEnumerable().FirstOrDefault();
 
-            /*ekran.Text = ""; */
+            ekran.Text = "";
             string kat = "";
             string właść = "";
 
@@ -203,19 +204,31 @@ namespace SemiProject
             "SELECT * " +
             "FROM Drinks f " +
             "WHERE ");
-            /*
+
             foreach (var drink in drinks) //Jak przy wyświetlaniu... - poprawić!
             {
                 if (ekran.Text != "")
                     ekran.Text += "\n\n" + drink;
                 else
                     ekran.Text += "" + drink;
-            }*/
+            }
         }
 
         public async void AddDrink()
         {
-            lastId++;
+            this.client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
+            Database database = client.CreateDatabaseQuery().Where(db => db.Id == "WinoDB").AsEnumerable().FirstOrDefault();
+            DocumentCollection documentCollection = client.CreateDocumentCollectionQuery(database.CollectionsLink).Where(c => c.Id == "WinoDB").AsEnumerable().FirstOrDefault();
+
+            var drinks = client.CreateDocumentQuery(documentCollection.DocumentsLink,
+            "SELECT * from Drinks f");
+            int ID = 1;
+            foreach (var drink in drinks)
+            {
+                ID++;
+            }
+
+            string id = ID.ToString();
 
             Ingredient[] Ing = new Ingredient[ingAmount];
             int per1, per2, per3, per4;
@@ -299,7 +312,7 @@ namespace SemiProject
 
             Drinkz d1 = new Drinkz
             {
-                Id = lastId.ToString(),
+                Id = id,
                 Name = name.Text.ToString(),
                 Type = type.Text.ToString(),
                 Companies = Comp,
@@ -308,12 +321,7 @@ namespace SemiProject
                 Quality = textBox2.Text.ToString()
             };
 
-            using (var client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey))
-            {
-                Database database = client.CreateDatabaseQuery().Where(db => db.Id == "WinoDB").AsEnumerable().FirstOrDefault();
-                DocumentCollection documentCollection = client.CreateDocumentCollectionQuery(database.CollectionsLink).Where(c => c.Id == "WinoDB").AsEnumerable().FirstOrDefault();
-                await client.CreateDocumentAsync(documentCollection.DocumentsLink, d1);
-            }
+            await client.CreateDocumentAsync(documentCollection.DocumentsLink, d1);
         }
 
         public async void DeleteDrink()
