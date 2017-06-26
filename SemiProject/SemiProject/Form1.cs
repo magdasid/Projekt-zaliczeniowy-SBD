@@ -440,12 +440,12 @@ namespace SemiProject
             Drinkz d1 = new Drinkz
             {
                 Id = id,
-                Name = name.Text.ToString(),
-                Type = type.Text.ToString(),
+                Name = name.Text,
+                Type = type.Text,
                 Companies = Comp,
                 Ingredients = Ing,
                 Price = Convert.ToDouble(textBox3.Text),
-                Quality = textBox2.Text.ToString()
+                Quality = textBox2.Text
             };
 
             await client.CreateDocumentAsync(documentCollection.DocumentsLink, d1);
@@ -590,29 +590,46 @@ namespace SemiProject
                     {
                         if (ingAmount == 4 && textBox23.Text != "")
                         {
-                            AddDrink();
+                            EditDrink();
                             ingAmount = 1;
                             panel8.Visible = false;
+                            panel7.Visible = false;
+                            panel1.Visible = false;
+                            label1.Visible = true;
+                            ekran.Visible = true;
+
                         }
                         else if (ingAmount == 3)
                         {
-                            AddDrink();
+                            EditDrink();
                             ingAmount = 1;
                             panel8.Visible = false;
+                            panel7.Visible = false;
+                            panel1.Visible = false;
+                            label1.Visible = true;
+                            ekran.Visible = true;
                         }
                     }
                     else if (ingAmount == 2)
                     {
-                        AddDrink();
+                        EditDrink();
                         ingAmount = 1;
                         panel8.Visible = false;
+                        panel7.Visible = false;
+                        panel1.Visible = false;
+                        label1.Visible = true;
+                        ekran.Visible = true;
                     }
                 }
                 else if (ingAmount == 1)
                 {
-                    AddDrink();
+                    EditDrink();
                     ingAmount = 1;
                     panel8.Visible = false;
+                    panel7.Visible = false;
+                    panel1.Visible = false;
+                    label1.Visible = true;
+                    ekran.Visible = true;
                 }
             }
         }
