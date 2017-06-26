@@ -180,11 +180,17 @@ namespace SemiProject
 
         private void button4_Click(object sender, EventArgs e) //Edytuj napój
         {
-            //Zrobić formularz Form4 do edycji...
+            panel8.Visible = true;
         }
 
         private void button5_Click(object sender, EventArgs e) //Znajdź napój
         {
+            label1.Visible = false;
+            ekran.Visible = true;
+            label1.Visible = true;
+            panel7.Visible = false;
+            panel2.Visible = false;
+            panel1.Visible = false;
 
             this.client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
             Database database = client.CreateDatabaseQuery().Where(db => db.Id == "WinoDB").AsEnumerable().FirstOrDefault();
@@ -328,7 +334,8 @@ namespace SemiProject
                 Quality = textBox21.Text
             };
 
-            await client.CreateDocumentAsync(documentCollection.DocumentsLink, d1);
+            var uri = UriFactory.CreateDocumentUri("WinoDB", "WinoDB", id);
+            await client.ReplaceDocumentAsync(uri, d1);
         }
 
         public async void AddDrink()
@@ -567,6 +574,43 @@ namespace SemiProject
             {
                 panel1.Visible = true;
                 ingAmount++;
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e) 
+        {
+            if (textBox11.Text != "" || textBox12.Text != "" && textBox13.Text != "" && textBox14.Text != "" && textBox15.Text != "" && textBox16.Text != "" && textBox20.Text != "" && textBox29.Text != "")
+            {
+                if (ingAmount > 1 && textBox27.Text != "")
+                {
+                    if (ingAmount > 2 && textBox25.Text != "")
+                    {
+                        if (ingAmount == 4 && textBox23.Text != "")
+                        {
+                            AddDrink();
+                            ingAmount = 1;
+                            panel8.Visible = false;
+                        }
+                        else if (ingAmount == 3)
+                        {
+                            AddDrink();
+                            ingAmount = 1;
+                            panel8.Visible = false;
+                        }
+                    }
+                    else if (ingAmount == 2)
+                    {
+                        AddDrink();
+                        ingAmount = 1;
+                        panel8.Visible = false;
+                    }
+                }
+                else if (ingAmount == 1)
+                {
+                    AddDrink();
+                    ingAmount = 1;
+                    panel8.Visible = false;
+                }
             }
         }
     }

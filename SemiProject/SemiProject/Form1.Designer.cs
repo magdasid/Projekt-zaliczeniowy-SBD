@@ -43,6 +43,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.button9 = new System.Windows.Forms.Button();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.label35 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -168,7 +169,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -268,6 +268,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(434, 167);
             this.comboBox1.Name = "comboBox1";
@@ -290,6 +291,7 @@
             this.ekran.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ekran.Location = new System.Drawing.Point(211, 234);
             this.ekran.Name = "ekran";
+            this.ekran.ReadOnly = true;
             this.ekran.Size = new System.Drawing.Size(588, 318);
             this.ekran.TabIndex = 11;
             this.ekran.Text = "";
@@ -345,6 +347,19 @@
             this.panel8.Size = new System.Drawing.Size(588, 343);
             this.panel8.TabIndex = 98;
             this.panel8.Visible = false;
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.White;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Location = new System.Drawing.Point(438, 23);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(96, 23);
+            this.button9.TabIndex = 95;
+            this.button9.Text = "Dodaj składnik";
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // textBox11
             // 
@@ -581,6 +596,7 @@
             this.button10.TabIndex = 93;
             this.button10.Text = "Zatwierdź";
             this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // label49
             // 
@@ -1509,19 +1525,6 @@
             this.button8.Text = "Zamknij";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.White;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Location = new System.Drawing.Point(438, 23);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(96, 23);
-            this.button9.TabIndex = 95;
-            this.button9.Text = "Dodaj składnik";
-            this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // Form1
             // 
