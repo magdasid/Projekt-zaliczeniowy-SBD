@@ -346,7 +346,6 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(588, 343);
             this.panel8.TabIndex = 98;
-            this.panel8.Visible = false;
             // 
             // button9
             // 
@@ -924,7 +923,6 @@
             this.button7.TabIndex = 97;
             this.button7.Text = "Usuń";
             this.button7.UseVisualStyleBackColor = false;
-            this.button7.Visible = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // label32
@@ -936,7 +934,6 @@
             this.label32.Size = new System.Drawing.Size(117, 22);
             this.label32.TabIndex = 96;
             this.label32.Text = "Usuń produkt";
-            this.label32.Visible = false;
             // 
             // label33
             // 
@@ -946,7 +943,6 @@
             this.label33.Size = new System.Drawing.Size(156, 13);
             this.label33.TabIndex = 94;
             this.label33.Text = "Podaj id produktu do usunięcia:";
-            this.label33.Visible = false;
             // 
             // textBox10
             // 
@@ -954,7 +950,6 @@
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(245, 20);
             this.textBox10.TabIndex = 93;
-            this.textBox10.Visible = false;
             // 
             // label34
             // 
@@ -964,7 +959,6 @@
             this.label34.Size = new System.Drawing.Size(19, 13);
             this.label34.TabIndex = 95;
             this.label34.Text = "err";
-            this.label34.Visible = false;
             // 
             // panel2
             // 

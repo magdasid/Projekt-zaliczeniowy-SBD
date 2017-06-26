@@ -15,9 +15,6 @@ using Microsoft.Azure.Documents.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-//Chwilowo działa, ale jak trzeba wstawić coś do bazy to po wstawieniu się zatrzymuje i za nic nie chce iść dalej ;/
-//Trzeba zrobić ładniejsze wyświetlanie JSONów!!
-
 namespace SemiProject
 {
     public partial class Form1 : Form
@@ -111,6 +108,9 @@ namespace SemiProject
             InitializeComponent();
             label1.Visible = false;
             ekran.Visible = false;
+            panel8.Visible = false;
+            panel7.Visible = false;
+            panel1.Visible = false;
             List<string> items = new List<string>() { "Nazwa produktu", "Typ", "Producent" };
             comboBox1.DataSource = items;
             try
@@ -129,11 +129,10 @@ namespace SemiProject
 
         private void button1_Click(object sender, EventArgs e) //Wyświetl napoje
         {
-            label1.Visible = false;
-            ekran.Visible = true;
             label1.Visible = true;
+            ekran.Visible = true;
+            panel8.Visible = false;
             panel7.Visible = false;
-            panel2.Visible = false;
             panel1.Visible = false;
             this.client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
             Database database = client.CreateDatabaseQuery().Where(db => db.Id == "WinoDB").AsEnumerable().FirstOrDefault();
@@ -145,7 +144,7 @@ namespace SemiProject
             "SELECT * " +
             "FROM Drinks f ");
 
-            foreach (var drink in drinks) //Tutaj dorobić lepsze wyświetlanie napojów - nie surowy JSON + mają się nie wyświetlać elementy, których nie przydzielono
+            foreach (var drink in drinks)
             {
                 if (ekran.Text != "")
                     ekran.Text += "\n\n" + drink;
@@ -156,40 +155,44 @@ namespace SemiProject
 
         private void button3_Click(object sender, EventArgs e) //Usuń napój
         {
-            label32.Visible = true;
-            label33.Visible = true;
-            textBox10.Visible = true;
-            button7.Visible = true;
-            panel7.Visible = true;
             label1.Visible = false;
             ekran.Visible = false;
+            panel8.Visible = false;
+            panel7.Visible = true;
+            panel1.Visible = true;
+            label34.Visible = false;
         }
 
         private void button2_Click(object sender, EventArgs e) //Dodaj napój
         {
-            panel1.Visible = true;
-            ekran.Visible = false;
             label1.Visible = false;
-            panel2.Visible = true;
+            ekran.Visible = false;
+            panel8.Visible = false;
             panel7.Visible = false;
+            panel1.Visible = true;
             panel4.Visible = false;
             panel5.Visible = false;
             panel6.Visible = false;
-            panel1.Visible = true;
         }
 
         private void button4_Click(object sender, EventArgs e) //Edytuj napój
         {
+            label1.Visible = false;
+            ekran.Visible = false;
             panel8.Visible = true;
+            panel7.Visible = true;
+            panel1.Visible = true;
+            panel13.Visible = false;
+            panel12.Visible = false;
+            panel11.Visible = false;
         }
 
         private void button5_Click(object sender, EventArgs e) //Znajdź napój
         {
-            label1.Visible = false;
-            ekran.Visible = true;
             label1.Visible = true;
+            ekran.Visible = true;
+            panel8.Visible = false;
             panel7.Visible = false;
-            panel2.Visible = false;
             panel1.Visible = false;
 
             this.client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
@@ -489,11 +492,11 @@ namespace SemiProject
             }
             if (changed)
             {
-                label32.Visible = false;
-                label33.Visible = false;
-                textBox10.Visible = false;
-                button7.Visible = false;
+                label1.Visible = true;
+                ekran.Visible = true;
+                panel8.Visible = false;
                 panel7.Visible = false;
+                panel1.Visible = false;
             }
         }
 
