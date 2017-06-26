@@ -66,3 +66,15 @@ C:\Users\Madzia\Desktop\Nowy folder\SemistrukturalneBD\SemiProject\SemiProject\o
 C:\Users\Madzia\Desktop\Nowy folder\SemistrukturalneBD\SemiProject\SemiProject\obj\Debug\SemiProject.Form3.resources
 C:\Users\Madzia\Desktop\Nowy folder\SemistrukturalneBD\SemiProject\SemiProject\obj\Debug\SemiProject.Properties.Resources.resources
 C:\Users\Madzia\Desktop\Nowy folder\SemistrukturalneBD\SemiProject\SemiProject\obj\Debug\SemiProject.csproj.GenerateResource.Cache
+C:\Users\Anna Piasecka\Desktop\vvv\SemistrukturalneBD\SemiProject\SemiProject\bin\Debug\Microsoft.Azure.Documents.ServiceInterop.dll
+C:\Users\Anna Piasecka\Desktop\vvv\SemistrukturalneBD\SemiProject\SemiProject\bin\Debug\DocumentDB.Spatial.Sql.dll
+C:\Users\Anna Piasecka\Desktop\vvv\SemistrukturalneBD\SemiProject\SemiProject\bin\Debug\SemiProject.exe
+C:\Users\Anna Piasecka\Desktop\vvv\SemistrukturalneBD\SemiProject\SemiProject\bin\Debug\SemiProject.pdb
+C:\Users\Anna Piasecka\Desktop\vvv\SemistrukturalneBD\SemiProject\SemiProject\bin\Debug\Microsoft.Azure.Documents.Client.dll
+C:\Users\Anna Piasecka\Desktop\vvv\SemistrukturalneBD\SemiProject\SemiProject\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Anna Piasecka\Desktop\vvv\SemistrukturalneBD\SemiProject\SemiProject\bin\Debug\Microsoft.Azure.Documents.Client.xml
+C:\Users\Anna Piasecka\Desktop\vvv\SemistrukturalneBD\SemiProject\SemiProject\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Anna Piasecka\Desktop\vvv\SemistrukturalneBD\SemiProject\SemiProject\obj\Debug\SemiProject.csprojResolveAssemblyReference.cache
+C:\Users\Anna Piasecka\Desktop\vvv\SemistrukturalneBD\SemiProject\SemiProject\obj\Debug\SemiProject.Form1.resources
+C:\Users\Anna Piasecka\Desktop\vvv\SemistrukturalneBD\SemiProject\SemiProject\obj\Debug\SemiProject.Properties.Resources.resources
+C:\Users\Anna Piasecka\Desktop\vvv\SemistrukturalneBD\SemiProject\SemiProject\obj\Debug\SemiProject.csproj.GenerateResource.Cache
